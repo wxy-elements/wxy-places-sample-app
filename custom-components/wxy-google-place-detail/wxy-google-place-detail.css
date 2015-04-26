@@ -1,0 +1,13 @@
+iron-icon {
+  color: #673ab7;
+}
+wxy-rating {
+  color: #FFC107;
+}
+.review-text {
+  font-size: 14px;
+  margin: 0 20px 10px;
+}
+iron-icon {
+  min-width: 24px;
+}

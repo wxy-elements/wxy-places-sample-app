@@ -1,0 +1,48 @@
+paper-drawer-panel {
+  bottom: 30px;
+  height: auto;
+}
+.iron-header {
+  z-index: 2;
+}
+.iron-header paper-fab {
+  z-index: 2;
+}
+paper-fab {
+  position: absolute;
+  background-color: #FF9100;
+  top: 100px;
+  right: 25px;
+}
+paper-item /deep/ .button-content {
+  padding: 0px;
+}
+.list-icon {
+  width: 24px;
+  height: 24px;
+}
+.list-photo {
+  min-width: 70px;
+  height: 120px;
+}
+paper-item {
+  height: 120px;
+  max-height: 120px;
+  padding-right: 0;
+}
+paper-tile-left {
+  padding: 20px 0 20px 20px;
+}
+.item-title {
+  font-size: 18px;
+  margin-bottom: 2px;
+}
+.item-description {
+  font-size: 14px;
+  color: gray;
+}
+@media (max-width: 640px) {
+  .list-photo {
+    max-width: 70px;
+  }
+}

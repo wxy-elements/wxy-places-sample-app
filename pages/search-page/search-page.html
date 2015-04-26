@@ -1,0 +1,72 @@
+<link rel="import" href="../../components/polymer/polymer.html">
+<link rel="import" href="../../components/iron-input/iron-input.html">
+<link rel="import" href="../../components/iron-image/iron-image.html">
+<link rel="import" href="../../components/iron-media-query/iron-media-query.html">
+<link rel="import" href="../../components/iron-icons/iron-icons.html">
+<link rel="import" href="../../components/iron-icons/communication-icons.html">
+<link rel="import" href="../../components/paper-header-panel/paper-header-panel.html">
+<link rel="import" href="../../components/paper-toolbar/paper-toolbar.html">
+<link rel="import" href="../../components/paper-drawer-panel/paper-drawer-panel.html">
+<link rel="import" href="../../components/paper-item/paper-item.html">
+<link rel="import" href="../../custom-components/wxy-google-places/wxy-google-places.html">
+<link rel="import" href="../../custom-components/wxy-google-place-detail/wxy-google-place-detail.html">
+
+<dom-module id="search-page">
+  <link rel="import" type="css" href="search-page.css">
+  <template>
+    <wxy-google-places id="places"></wxy-google-places>
+    <iron-media-query query="max-width: 640px" query-matches="{{mobile}}"></iron-media-query>
+    <paper-drawer-panel id="panel" right-drawer drawer-width="350px" narrow="{{narrow}}" force-narrow>
+      <paper-header-panel class="fit" main mode="seamed">
+        <div class="paper-header">
+          <paper-fab icon="search" class="middle"></paper-fab>
+        </div>
+        <paper-toolbar class="medium-tall">
+          <div class="paper-field horizontal layout flex">
+            <iron-icon icon="search"></iron-icon>
+            <input  is="iron-input" type="text"
+                    _value="{{searchValue::input}}"
+                    bind-value="{{search}}"
+                    on-bind-value-changed="handleSearchChanged"
+                    placeholder="Search"
+                    class="flex">
+            <iron-icon icon="close" on-tap="handleClearSearch"></iron-icon>
+          </div>
+          <div class="paper-field middle horizontal layout flex">
+            <iron-icon icon="communication:location-on"></iron-icon>
+            <input type="text" is="iron-input"
+                  _value="{{locationValue::input}}"
+                  bind-value="{{location}}"
+                  on-bind-value-changed="handleLocationChanged"
+                  placeholder="Location (Empty uses default or current location)"
+                  class="flex">
+          </div>
+        </paper-toolbar>
+        <div class="layout-margin" hidden$="[[!errorMessage]]">[[errorMessage]]</div>
+        <template is="x-repeat" items="[[places]]">
+          <paper-item on-tap="handlePlaceSelect" class="horizontal layout center">
+            <div class="paper-tile-left">
+              <iron-image class="list-icon" sizing="contain" src="[[item.icon]]"></iron-image>
+            </div>
+            <div class="paper-tile-content">
+              <div class="item-title">[[item.name]]</div>
+              <div class="item-description">[[item.formatted_address]]</div>
+            </div>
+            <div class="paper-tile-right" hidden$="[[!parent.narrow]]">
+              <iron-image class="list-photo" src="[[item.photo]]"></iron-image>
+            </div>
+          </paper-item>
+        </template>
+      </paper-header-panel>
+      <paper-header-panel id="drawer" class="fit" drawer>
+        <paper-toolbar class="medium-tall">
+          <div class="middle" class="flex">[[placeName]]</div>
+          <div class="flex"></div>
+          <!--<iron-icon icon="close" on-tap="handleCloseDrawerTap"></iron-icon>-->
+        </paper-toolbar>
+        <wxy-google-place-detail place-id="[[placeId]]" class="fit"></wxy-google-place-detail>
+      </paper-header-panel>
+    </paper-drawer-panel>
+  </template>
+  <script src="search-page.js"></script>
+</dom-module>

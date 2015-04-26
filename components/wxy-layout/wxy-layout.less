@@ -1,0 +1,54 @@
+// out: wxy-layout.css
+
+@deep: ~'/deep/';
+
+@layout-gutter-width: 16px;
+
+@button-fab-width: 56px;
+@button-fab-height: 56px;
+@button-fab-padding: 16px;
+
+html @{deep} {
+
+.fab-position (@spot, @top: auto, @right: auto, @bottom: auto, @left: auto) {
+  &[@{spot}] {
+    position: absolute;
+    top: @top;
+    right: @right;
+    bottom: @bottom;
+    left: @left;
+  }
+}
+
+.layout-margin,
+.layout-margin > .flex {
+  margin: @layout-gutter-width / 2;
+}
+
+paper-fab {
+  .fab-position(bottom-right, auto, @button-fab-padding, @button-fab-padding, auto);
+}
+
+.spacing-top {
+  margin-top: 10px;
+}
+
+.spacing-bottom {
+  margin-bottom: 10px;
+}
+
+.paper-tile-left {
+  min-width: 56px;
+  margin-right: -16px;
+}
+
+.paper-tile-content {
+  flex: 1;
+  padding: 16px;
+}
+
+.paper-tile-right {
+  padding-right: 0;
+}
+
+}

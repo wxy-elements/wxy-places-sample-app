@@ -1,0 +1,47 @@
+<link rel="import" href="../../components/polymer/polymer.html">
+<link rel="import" href="../../components/iron-image/iron-image.html">
+<link rel="import" href="../../custom-components/wxy-rating/wxy-rating.html">
+<link rel="import" href="../../custom-components/wxy-google-places/wxy-google-places.html">
+
+<dom-module id="wxy-google-place-detail">
+  <link rel="import" type="css" href="wxy-google-place-detail.css">
+  <template>
+    <wxy-google-places id="places" on-google-places-ready="onReady"></wxy-google-places>
+    <div class="horizontal layout center-justified">
+      <iron-image src="[[currentPhoto]]"></iron-image>
+    </div>
+
+    <div class="layout-margin horizontal layout center">
+      <div class="flex">
+        <div hidden$="[[!detail.opening_hours]]">[[computeOpenNow(detail.opening_hours.open_now)]]</div>
+      </div>
+      <wxy-rating icon="star" count="[[detail.rating]]"></wxy-rating>
+    </div>
+
+    <div layout-margin>
+      <div class="paper-field horizontal layout center">
+        <iron-icon icon="communication:location-on"></iron-icon>
+        <div>[[detail.formatted_address]]</div>
+      </div>
+      <div hidden$="[[!detail.formatted_phone_number]]" class="paper-field horizontal layout center">
+        <iron-icon icon="communication:call"></iron-icon>
+        <div>[[detail.formatted_phone_number]]</div>
+      </div>
+      <div hidden$="[[!detail.website]]" class="paper-field horizontal layout center">
+        <iron-icon icon="info"></iron-icon>
+        <a _href="[[detail.website]]" target="_blank">[[detail.website]]</a>
+      </div>
+    </div>
+
+    <div class="subheader">Reviews</div>
+    <template is="x-repeat" items="[[detail.reviews]]">
+      <div class="horizontal layout layout-margin center review-title">
+        <div class="flex">[[item.author_name]]</div>
+        <wxy-rating icon="star" count="[[item.rating]]"></wxy-rating>
+      </div>
+      <div class="review-text">[[item.text]]</div>
+    </template>
+  </template>
+</dom-module>
+
+<script src="wxy-google-place-detail.js"></script>

@@ -1,0 +1,27 @@
+<link rel="import" href="../../components/polymer/polymer.html">
+<link rel="import" href="../../components/paper-header-panel/paper-header-panel.html">
+<link rel="import" href="../../components/paper-toolbar/paper-toolbar.html">
+<link rel="import" href="../../components/paper-drawer-panel/paper-drawer-panel.html">
+<link rel="import" href="../../components/iron-input/iron-input.html">
+<link rel="import" href="../../components/iron-image/iron-image.html">
+<link rel="import" href="../../components/iron-media-query/iron-media-query.html">
+<link rel="import" href="../../components/iron-icons/iron-icons.html">
+<link rel="import" href="../../components/iron-icons/communication-icons.html">
+<link rel="import" href="../../components/paper-item/paper-item.html">
+<link rel="import" href="../../custom-components/wxy-google-places/wxy-google-places.html">
+<link rel="import" href="../../custom-components/wxy-google-place-detail/wxy-google-place-detail.html">
+
+<dom-module id="detail-page">
+  <link rel="import" type="css" href="detail-page.css">
+  <template>
+    <paper-header-panel class="fit">
+      <paper-toolbar>
+        <iron-icon class="paper-icon-button" icon="arrow-back" on-tap="handleBackTap"></iron-icon>
+        <div class="flex">{{detail.name}}</div>
+      </paper-toolbar>
+      <wxy-google-place-detail place-id="{{placeId}}" detail="{{detail}}" class="fit"></wxy-google-place-detail>
+    </paper-header-panel>
+  </template>
+</dom-module>
+
+<script src="detail-page.js"></script>

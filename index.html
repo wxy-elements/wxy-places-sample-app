@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Places</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <script src="components/webcomponentsjs/webcomponents.js"></script>
+  <link rel="import" href="components/font-roboto/roboto.html">
+  <link rel="import" href="components/wxy-router/wxy-router.html">
+  <link rel="import" href="components/wxy-layout/wxy-layout.html">
+  <link rel="import" href="components/iron-image/iron-image.html">
+  <link rel="import" href="pages/search-page/search-page.html">
+  <link rel="import" href="pages/detail-page/detail-page.html">
+  <link rel="stylesheet" href="app.css" shim-shadowdom>
+</head>
+<body class="unresolved fullbleed layout vertical">
+  <wxy-router key="main">
+    <wxy-route path="/"
+               name="search-page"></wxy-route>
+    <wxy-route path="/place/:placeId"
+               name="detail-page"></wxy-route>
+  </wxy-router>
+  <div id="google-logo" class="horizontal layout center-justified center">
+    <iron-image src="powered-by-google-on-white.png"></iron-image>
+  </div>
+</body>
+</html>

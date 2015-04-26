@@ -1,0 +1,83 @@
+//out: app.css
+
+@deep: ~'/deep/';
+
+@primary500-color: #673AB7;
+@primary700-color: #512DA8;
+@gray100: #F5F5F5;
+
+body {
+  font-family: RobotoDraft, 'Helvetica Neue', Helvetica, Arial;
+}
+
+#google-logo {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 5px;
+  border-top: 1px solid lightgray;
+  background-color: white;
+}
+
+html @{deep} {
+  .paper-icon-button {
+    margin: 0 10px;
+  }
+
+  // styles from core-field
+  .paper-field {
+    display: block;
+    color: #333;
+    font-size: 14px;
+
+    iron-icon {
+      margin: 8px;
+    }
+
+    input {
+      background: transparent;
+      border: 0;
+      padding: 0;
+      margin: 0 4px;
+      color: #333;
+      font-size: 14px;
+
+      &:focus {
+        outline: none;
+      }
+
+      &::placeholder {
+        color: #b3b3b3;
+      }
+    }
+  }
+
+  .subheader {
+    font-weight: bold;
+    color: @primary500-color;
+    font-size: 14px;
+    margin: 20px 15px 0;
+    border-top: 1px solid lightgray;
+    padding-top: 10px;
+  }
+
+  paper-toolbar {
+    background-color: @primary500-color !important;
+
+    iron-icon, input, paper-icon-button {
+      color: white !important;
+    }
+  }
+
+  [drawer] {
+    paper-toolbar {
+      background-color: @primary700-color !important;
+      color: white;
+    }
+
+    @{deep} #mainContainer {
+      background-color: @gray100;
+    }
+  }
+}

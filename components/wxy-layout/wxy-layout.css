@@ -1,0 +1,28 @@
+html /deep/ .layout-margin,
+html /deep/ .layout-margin > .flex {
+  margin: 8px;
+}
+html /deep/ paper-fab[bottom-right] {
+  position: absolute;
+  top: auto;
+  right: 16px;
+  bottom: 16px;
+  left: auto;
+}
+html /deep/ .spacing-top {
+  margin-top: 10px;
+}
+html /deep/ .spacing-bottom {
+  margin-bottom: 10px;
+}
+html /deep/ .paper-tile-left {
+  min-width: 56px;
+  margin-right: -16px;
+}
+html /deep/ .paper-tile-content {
+  flex: 1;
+  padding: 16px;
+}
+html /deep/ .paper-tile-right {
+  padding-right: 0;
+}

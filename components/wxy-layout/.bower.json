@@ -1,0 +1,14 @@
+{
+  "name": "wxy-layout",
+  "homepage": "https://github.com/wuxiaoying/wxy-layout",
+  "_release": "87b127b960",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "87b127b9606aea2a03af38e0b53ee233f2de5bed"
+  },
+  "_source": "git://github.com/wuxiaoying/wxy-layout.git",
+  "_target": "*",
+  "_originalSource": "wxy-layout",
+  "_direct": true
+}
